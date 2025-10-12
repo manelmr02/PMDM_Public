@@ -1,0 +1,17 @@
+.contenedor {
+  padding: 20px;
+  min-height: 100vh;
+  background: url("/images/fondoPersonajes.png") no-repeat center center fixed;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}

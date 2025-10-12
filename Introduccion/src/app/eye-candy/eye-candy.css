@@ -1,0 +1,74 @@
+/*Utilizo host porque esto sirve para modificar el estilo para el elemento raiz del componente*/
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.evolution-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #ffebc8, #ffb74d);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.pokemon {
+  position: relative;
+  text-align: center;
+}
+
+.pokemon img {
+  width: 150px;
+  height: auto;
+  z-index: 2;
+  position: relative;
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,255,0,0.8), transparent 70%);
+  animation: pulse 1.5s infinite;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.reset-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.evolving img {
+  animation: glowPulse 0.8s infinite alternate;
+  filter: brightness(1.8);
+}
+
+@keyframes glowPulse {
+  from { transform: scale(1); filter: brightness(1.5) blur(1px); }
+  to { transform: scale(1.1); filter: brightness(2) blur(0px); }
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.7; }
+}

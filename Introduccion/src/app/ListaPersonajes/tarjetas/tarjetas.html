@@ -1,0 +1,14 @@
+<div class="tarjeta">
+    <div class="escudo">
+        <img [src]="getEscudo(personaje.equipo)" [alt]="personaje.equipo">
+    </div>
+    <img class="foto" [src]="personaje.imagen" [alt]="personaje.nombre">
+    <h3>{{ personaje.nombre }}</h3>
+    <p><strong>Equipo:</strong> {{ personaje.equipo }}</p>
+    <div class="poder">
+        <strong>Poder:</strong>
+        @for (estrella of getEstrellas(); track $index) {
+        <span>⭐</span>
+        }
+    </div>
+</div>

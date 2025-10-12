@@ -1,0 +1,42 @@
+<div class="centrado">
+    <div class="contadorMarco">
+        <p>Topos cazados: {{ numero }}</p>
+    </div>
+    <div class="tablero">
+        <button (click)="clickTopo()" *ngIf="topo===0; else boton" class="botonTopo">
+            <img src="/topo.png" alt="Topo" class="imagenTopo"/>
+        </button>
+        <button (click)="clickTopo()" *ngIf="topo===1; else boton" class="botonTopo">
+            <img src="/topo.png" alt="Topo" class="imagenTopo"/>
+        </button>
+        <button (click)="clickTopo()" *ngIf="topo===2; else boton" class="botonTopo">
+            <img src="/topo.png" alt="Topo" class="imagenTopo"/>
+        </button>
+        <button (click)="clickTopo()" *ngIf="topo===3; else boton" class="botonTopo">
+            <img src="/topo.png" alt="Topo" class="imagenTopo"/>
+        </button>
+        <button (click)="clickTopo()" *ngIf="topo===4; else boton" class="botonTopo">
+            <img src="/topo.png" alt="Topo" class="imagenTopo"/>
+        </button>
+        <button (click)="clickTopo()" *ngIf="topo===5; else boton" class="botonTopo">
+            <img src="/topo.png" alt="Topo" class="imagenTopo"/>
+        </button>
+        <button (click)="clickTopo()" *ngIf="topo===6; else boton" class="botonTopo">
+            <img src="/topo.png" alt="Topo" class="imagenTopo"/>
+        </button>
+        <button (click)="clickTopo()" *ngIf="topo===7; else boton" class="botonTopo">
+            <img src="/topo.png" alt="Topo" class="imagenTopo"/>
+        </button>
+        <button (click)="clickTopo()" *ngIf="topo===8; else boton" class="botonTopo">
+            <img src="/topo.png" alt="Topo" class="imagenTopo"/>
+        </button>
+    </div>
+    <div>
+    <button class="startButton" (click)="comenzar()">Comenzar</button>
+    <button class="startButton" (click)="reset()">Reset</button>
+    </div>
+</div>
+
+<ng-template #boton>
+    <button class="boton"></button>
+</ng-template>

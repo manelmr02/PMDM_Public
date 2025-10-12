@@ -1,0 +1,9 @@
+<div class="contenedor">
+  <h1>Lista de Personajes</h1>
+  
+  <div class="grid">
+    @for (personaje of personajes; track personaje.nombre) {
+      <app-tarjetas [personaje]="personaje"></app-tarjetas>
+    }
+  </div>
+</div>

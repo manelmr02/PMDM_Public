@@ -1,0 +1,7 @@
+<div class="evolution-container">
+  <div class="pokemon" [@evolveAnimation]="currentStage" [class.evolving]="isEvolving">
+    <div class="glow" *ngIf="isEvolving"></div>
+    <img [src]="currentImage" alt="pokemon" />
+  </div>
+</div>
+<button class="reset-btn" (click)="restartEvolution()">Reiniciar evolución</button>
