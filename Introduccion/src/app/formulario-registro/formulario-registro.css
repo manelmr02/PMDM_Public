@@ -1,0 +1,263 @@
+.principal-container {
+  padding: 20px;
+  min-height: 100vh;
+  background: url("/images/formularioHalloween/fondoHalloween.jpg") no-repeat center center fixed;
+}
+
+.countdown-container {
+  text-align: center;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.countdown-container p {
+  color: #ff6600;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px solid #1a1a1a;
+  border-radius: 15px;
+  margin: 20px 72px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.form-container h2 {
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(255, 102, 0, 0.3);
+}
+
+.subtitle {
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.mensaje-exito {
+  background: rgba(76, 175, 80, 0.9);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+label {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+input, select {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #ff6600;
+  box-shadow: 0 0 8px rgba(255, 102, 0, 0.3);
+}
+
+.campo-error {
+  border-color: #b30000 !important;
+  background-color: rgba(179, 0, 0, 0.05);
+  box-shadow: 0 0 8px rgba(179, 0, 0, 0.3);
+}
+
+.error-message {
+  color: #b30000;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 0.9rem;
+  display: block;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  margin: 0;
+  font-weight: normal;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+}
+
+.botones {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-enviar {
+  background: linear-gradient(135deg, #ff6600, #ff8c00);
+  color: white;
+}
+
+.btn-enviar:hover {
+  background: linear-gradient(135deg, #ff8c00, #ffa500);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-resetear {
+  background: linear-gradient(135deg, #666, #888);
+  color: white;
+}
+
+.btn-resetear:hover {
+  background: linear-gradient(135deg, #888, #999);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+
+.calabaza-decoracion {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 150px;
+  height: auto;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+  animation: float 3s ease-in-out infinite;
+}
+
+.vampiro-decoracion {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  height: auto;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+  animation: float 3s ease-in-out infinite;
+}
+
+.bruja-decoracion {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 250px;
+  height: auto;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+  animation: float 3s ease-in-out infinite;
+}
+
+.fantasma-decoracion {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 150px;
+  height: auto;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform:  translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenedor {
+    padding: 10px;
+  }
+
+  .form-container {
+    margin: 20px 20px;
+    padding: 20px;
+  }
+
+  .calabaza-decoracion {
+    width: 100px;
+    bottom: -15px;
+    right: -15px;
+  }
+
+  .countdown-container p {
+    font-size: 1rem;
+  }
+}

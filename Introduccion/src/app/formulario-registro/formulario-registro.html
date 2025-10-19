@@ -1,0 +1,110 @@
+<div class="principal-container">
+    <div class="countdown-container">
+        <p>{{ countdown }}</p>
+    </div>
+    <div class="form-container">
+        <h2>🦇Formulario de asistencia a la fiesta de Halloween🦇</h2>
+        <p class="subtitle">🏰Castillo del Conde Chibi🏰</p>
+
+        @if(mensajeExito) {
+        <div class="mensaje-exito">
+            {{ mensajeExito }}
+        </div>
+        }
+
+        <form [formGroup]="formulario" (ngSubmit)="mostrar()">
+
+            <!-- Nombre -->
+            <label for="nombre">👤 Nombre:</label>
+            <input id="nombre" formControlName="nombre" placeholder="Introduce tu nombre"
+                [class]="getCampoClases('nombre')">
+            @if(formulario.controls['nombre'].touched && formulario.controls['nombre'].invalid) {
+            <small class="error-message">
+                @if(formulario.controls['nombre'].hasError('required')) {
+                👻Este campo da más miedo vacío, ¡rellénalo!
+                }
+                @if(formulario.controls['nombre'].hasError('minlength')) {
+                👻Tu nombre debe tener al menos 3 caracteres
+                }
+            </small>
+            }
+
+            <!-- Email -->
+            <label for="email">📧 Email:</label>
+            <input id="email" type="email" formControlName="email" placeholder="Introduce tu email"
+                [class]="getCampoClases('email')">
+            @if(formulario.controls['email'].touched && formulario.controls['email'].invalid) {
+            <small class="error-message">
+                @if(formulario.controls['email'].hasError('required')) {
+                👻Este campo da más miedo vacío, ¡rellénalo!
+                }
+                @if(formulario.controls['email'].hasError('email')) {
+                🩸Este correo parece maldito… revisa el formato.
+                }
+            </small>
+            }
+
+            <!-- Tipo de Invitado -->
+            <label for="tipoInvitado">🧛 Tipo de Invitado:</label>
+            <select id="tipoInvitado" formControlName="tipoInvitado" [class]="getCampoClases('tipoInvitado')">
+                <option value="">Selecciona tu especie...</option>
+                @for(tipo of tiposInvitado; track tipo) {
+                <option [value]="tipo">{{ tipo }}</option>
+                }
+            </select>
+            @if(formulario.controls['tipoInvitado'].touched && formulario.controls['tipoInvitado'].invalid) {
+            <small class="error-message">
+                👻¡Debes seleccionar el tipo de criatura que eres... sino no llevaremos comida que puedas comer!
+            </small>
+            }
+
+            <!-- Disfraz -->
+            <label for="disfraz">🎭 Disfraz:</label>
+            <input id="disfraz" formControlName="disfraz" placeholder="¿De qué irás disfrazado?"
+                [class]="getCampoClases('disfraz')">
+            @if(formulario.controls['disfraz'].touched && formulario.controls['disfraz'].invalid) {
+            <small class="error-message">
+                👻Este campo da más miedo vacío, ¡rellénalo!
+            </small>
+            }
+
+            <!-- Fecha de Llegada -->
+            <label for="fechaLlegada">📅 Fecha de Llegada:</label>
+            <input id="fechaLlegada" type="date" formControlName="fechaLlegada"
+                [class]="getCampoClases('fechaLlegada')">
+            @if(formulario.controls['fechaLlegada'].touched && formulario.controls['fechaLlegada'].invalid) {
+            <small class="error-message">
+                @if(formulario.controls['fechaLlegada'].hasError('required')) {
+                👻¡Necesitamos saber cuándo llegarás al castillo!
+                }
+                @if(formulario.controls['fechaLlegada'].hasError('fechaTardia')) {
+                💀¡Demasiado tarde! La fiesta es el 31 de octubre. Si llegas después, ya habrá terminado y las
+                puertas del castillo estarán cerradas para siempre...
+                }
+            </small>
+            }
+            <!-- Aceptar Reglas -->
+            <div class="checkbox-container">
+                <input id="aceptaReglas" type="checkbox" formControlName="aceptaReglas">
+                <label for="aceptaReglas" class="checkbox-label">
+                    🧛Prometo no morder a los demás invitados
+                </label>
+            </div>
+            @if(formulario.controls['aceptaReglas'].touched && formulario.controls['aceptaReglas'].invalid) {
+            <small class="error-message">
+                🩸¡Debes aceptar las reglas del castillo!
+            </small>
+            }
+
+            <div class="botones">
+                <button type="submit" class="btn-enviar">🎃Enviar Inscripción</button>
+                <button type="button" (click)="resetear()" class="btn-resetear">🔄Resetear</button>
+            </div>
+        </form>
+
+        <img src="/images/formularioHalloween/calabaza.png" alt="Calabaza" class="calabaza-decoracion">
+        <img src="/images/formularioHalloween/vampiro.png" alt="Vampiro" class="vampiro-decoracion">
+        <img src="/images/formularioHalloween/bruja.png" alt="Bruja" class="bruja-decoracion">
+        <img src="/images/formularioHalloween/fantasma.png" alt="Fantasma" class="fantasma-decoracion">
+    </div>
+</div>

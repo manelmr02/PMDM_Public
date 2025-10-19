@@ -5,6 +5,7 @@ import { Carrera } from './carrera/carrera';
 import { PasoParametros } from './paso-parametros/paso-parametros';
 import { EyeCandy } from './eye-candy/eye-candy';
 import { ListaPersonajes } from './ListaPersonajes/lista-personajes/lista-personajes';
+import { FormularioRegistro } from './formulario-registro/formulario-registro';
 
 export const routes: Routes = [
     {path: 'contador', component: Contador},
@@ -12,5 +13,6 @@ export const routes: Routes = [
     {path: 'carrera', component: Carrera},
     {path: 'paso-parametros/:num', component: PasoParametros},
     {path:'eye-candy',component:EyeCandy},
-    {path: 'lista-personajes',component: ListaPersonajes}
+    {path: 'lista-personajes',component: ListaPersonajes},
+    {path: 'formulario-registro',component: FormularioRegistro}
 ];

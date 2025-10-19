@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-eye-candy',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './eye-candy.html',
   styleUrl: './eye-candy.css',
   animations: [
     trigger('evolveAnimation', [
     transition('* => *', [
-      // 1️⃣ Desaparece con brillo
       style({ opacity: 1, filter: 'brightness(1)' }),
       animate('300ms ease-in', style({ filter: 'brightness(2)', opacity: 0 })),
-      // 2️⃣ Efecto de "descomposición"
       animate('300ms ease-out', style({ filter: 'blur(4px)', opacity: 0 })),
-      // 3️⃣ Reaparece con el nuevo Pokémon
       animate('800ms ease-in', style({ filter: 'blur(0px)', opacity: 1, transform: 'scale(1)' }))
     ])
   ])

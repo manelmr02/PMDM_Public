@@ -129,6 +129,17 @@
   border: none;
 }
 
+.sidenav-footer {
+  padding: 20px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+}
 /*Para que cuando este el sidenav abierto el boton de cerrarlo sea visible y no sea superpuesto con el sidebar*/
 .mat-sidenav-content.shifted .custom-menu-button {
   left: 330px; 
@@ -181,4 +192,89 @@
   .mat-sidenav-content.shifted {
     margin-left: 0;
   }
+}
+
+/* HALLOWEEN MODE STYLES */
+.nav-halloween .sidenav {
+  background: linear-gradient(180deg, #1a0a0f 0%, #0d0406 100%);
+  box-shadow: 0 0 40px rgba(255, 94, 0, 0.3);
+  border-right: 2px solid rgba(255, 94, 0, 0.2);
+}
+
+.nav-halloween .sidenav::before {
+  content: url("/images/halloweenSidebar.jpg");
+  position: absolute;
+  font-size: 100px;
+  opacity: 0.10;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.nav-halloween .sidenav-header {
+  background: linear-gradient(135deg, rgba(255, 94, 0, 0.15) 0%, rgba(139, 0, 139, 0.15) 100%);
+  border-bottom: 1px solid rgba(255, 94, 0, 0.2);
+}
+
+.nav-halloween .logo-container {
+  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
+  box-shadow: 0 0 20px rgba(255, 94, 0, 0.5);
+}
+
+
+.nav-halloween .logo-icon {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+.nav-halloween .sidenav-title {
+  color: #ff8c00;
+  text-shadow: 0 0 10px rgba(255, 94, 0, 0.7), 0 0 20px rgba(255, 94, 0, 0.4);
+}
+
+
+.nav-halloween .opcion::before {
+  background: linear-gradient(90deg, rgba(255, 94, 0, 0.2) 0%, rgba(139, 0, 139, 0.2) 100%);
+}
+
+.nav-halloween .opcion:hover {
+  background: rgba(255, 94, 0, 0.1);
+  box-shadow: 0 0 15px rgba(255, 94, 0, 0.2);
+}
+
+.nav-halloween .opcion.active {
+  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
+  box-shadow: 0 4px 20px rgba(255, 94, 0, 0.6);
+  border: 1px solid rgba(255, 94, 0, 0.3);
+}
+
+.nav-halloween .opcion:hover .opcion-icon {
+  filter: drop-shadow(0 0 6px rgba(255, 94, 0, 0.8));
+}
+
+.nav-halloween .custom-menu-button {
+  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
+  box-shadow: 0 8px 24px rgba(255, 94, 0, 0.5);
+  border: 2px solid rgba(255, 94, 0, 0.3);
+}
+
+.nav-halloween .custom-menu-button:hover {
+  box-shadow: 0 12px 40px rgba(255, 94, 0, 0.7);
+}
+
+.nav-halloween .sidenav-footer {
+  border-top: 1px solid rgba(255, 94, 0, 0.2);
+  background: rgba(255, 94, 0, 0.05);
+}
+
+.nav-halloween .sidenav-footer span {
+  color: rgba(255, 140, 0, 0.7);
+}
+
+/* HALLOWEEN TOGGLE STYLES */
+.nav-halloween mat-slide-toggle {
+  --mdc-switch-selected-track-color: #ff5e00;
+  --mdc-switch-selected-handle-color: #ff8c00;
+  --mdc-switch-selected-hover-track-color: #ff7700;
+  --mdc-switch-selected-pressed-track-color: #ff4400;
 }
