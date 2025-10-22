@@ -7,6 +7,7 @@ import { EyeCandy } from './eye-candy/eye-candy';
 import { ListaPersonajes } from './ListaPersonajes/lista-personajes/lista-personajes';
 import { FormularioRegistro } from './formulario-registro/formulario-registro';
 import { Inicio } from './inicio/inicio';
+import { TableroKanban } from './tablero-kanban/tablero-kanban';
 
 export const routes: Routes = [
     {path: '', component: Inicio},
@@ -16,5 +17,6 @@ export const routes: Routes = [
     {path: 'paso-parametros/:num', component: PasoParametros},
     {path:'eye-candy/:esHalloween',component:EyeCandy},
     {path: 'lista-personajes/:esHalloween',component: ListaPersonajes},
-    {path: 'formulario-registro',component: FormularioRegistro}
+    {path: 'formulario-registro',component: FormularioRegistro},
+    {path: 'tablero-kanban',component: TableroKanban}
 ];
