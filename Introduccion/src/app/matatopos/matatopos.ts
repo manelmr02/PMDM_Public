@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 
 
@@ -12,6 +13,20 @@ import { CommonModule } from '@angular/common';
 export class Matatopos {
   numero: number = 0;
   topo: number = -1;
+  esHalloween: boolean = false;
+
+  constructor(private ruta: ActivatedRoute) {
+    const param = this.ruta.snapshot.paramMap.get('esHalloween');
+    this.esHalloween = param === 'true';  // Solo true si el string es 'true'
+  }
+
+  // esto es para suscribirse a cambios, lo que permite visualizar los cambios sin recargar
+  ngOnInit() {
+    this.ruta.paramMap.subscribe(params => {
+      const param = params.get('esHalloween');
+      this.esHalloween = param === 'true';
+    });
+  }
 
   comenzar() {
     this.generarTopo();

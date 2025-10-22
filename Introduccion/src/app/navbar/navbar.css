@@ -6,6 +6,11 @@
   background: transparent;
 }
 
+.index-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .sidenav {
   width: 320px;
   background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
@@ -140,6 +145,7 @@
   color: rgba(255, 255, 255, 0.4);
   font-weight: 500;
 }
+
 /*Para que cuando este el sidenav abierto el boton de cerrarlo sea visible y no sea superpuesto con el sidebar*/
 .mat-sidenav-content.shifted .custom-menu-button {
   left: 330px; 
@@ -194,7 +200,7 @@
   }
 }
 
-/* HALLOWEEN MODE STYLES */
+/*Estilos de Halloween*/
 .nav-halloween .sidenav {
   background: linear-gradient(180deg, #1a0a0f 0%, #0d0406 100%);
   box-shadow: 0 0 40px rgba(255, 94, 0, 0.3);
@@ -269,12 +275,4 @@
 
 .nav-halloween .sidenav-footer span {
   color: rgba(255, 140, 0, 0.7);
-}
-
-/* HALLOWEEN TOGGLE STYLES */
-.nav-halloween mat-slide-toggle {
-  --mdc-switch-selected-track-color: #ff5e00;
-  --mdc-switch-selected-handle-color: #ff8c00;
-  --mdc-switch-selected-hover-track-color: #ff7700;
-  --mdc-switch-selected-pressed-track-color: #ff4400;
 }

@@ -16,6 +16,8 @@ export class Tarjetas {
 
   };
 
+  @Input() esHalloween!:boolean;
+
   getEstrellas(): number[]{
     return Array(this.personaje.poder).fill(0);
   }

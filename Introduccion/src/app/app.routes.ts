@@ -6,13 +6,15 @@ import { PasoParametros } from './paso-parametros/paso-parametros';
 import { EyeCandy } from './eye-candy/eye-candy';
 import { ListaPersonajes } from './ListaPersonajes/lista-personajes/lista-personajes';
 import { FormularioRegistro } from './formulario-registro/formulario-registro';
+import { Inicio } from './inicio/inicio';
 
 export const routes: Routes = [
-    {path: 'contador', component: Contador},
-    {path: 'matatopos', component: Matatopos},
+    {path: '', component: Inicio},
+    {path: 'contador/:esHalloween', component: Contador},
+    {path: 'matatopos/:esHalloween', component: Matatopos},
     {path: 'carrera', component: Carrera},
     {path: 'paso-parametros/:num', component: PasoParametros},
-    {path:'eye-candy',component:EyeCandy},
-    {path: 'lista-personajes',component: ListaPersonajes},
+    {path:'eye-candy/:esHalloween',component:EyeCandy},
+    {path: 'lista-personajes/:esHalloween',component: ListaPersonajes},
     {path: 'formulario-registro',component: FormularioRegistro}
 ];

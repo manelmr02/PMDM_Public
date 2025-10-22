@@ -46,3 +46,9 @@
 .poder span {
     font-size: 20px;
 }
+
+.halloweenCard {
+    background: rgba(0, 0, 0, 0.8);
+    color: orange;
+    border-color: orange;
+}

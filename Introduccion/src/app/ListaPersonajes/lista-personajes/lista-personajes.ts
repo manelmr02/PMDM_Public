@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { Tarjetas } from '../tarjetas/tarjetas';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-lista-personajes',
-  imports: [Tarjetas],
+  imports: [Tarjetas,CommonModule],
   templateUrl: './lista-personajes.html',
   styleUrl: './lista-personajes.css'
 })
@@ -40,4 +43,19 @@ export class ListaPersonajes {
       imagen: '/images/tezcat.webp'
     }
   ];
+
+  esHalloween: boolean = false;
+
+  constructor(private ruta: ActivatedRoute) {
+    const param = this.ruta.snapshot.paramMap.get('esHalloween');
+    this.esHalloween = param === 'true';  // Solo true si el string es 'true'
+  }
+
+
+  ngOnInit() {
+    this.ruta.paramMap.subscribe(params => {
+      const param = params.get('esHalloween');
+      this.esHalloween = param === 'true';
+    });
+  }
 }

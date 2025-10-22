@@ -1,9 +1,9 @@
-<div class="contenedor">
+<div class="contenedor" [ngClass]="{'halloween': esHalloween}">
   <h1>Lista de Personajes</h1>
   
   <div class="grid">
     @for (personaje of personajes; track personaje.nombre) {
-      <app-tarjetas [personaje]="personaje"></app-tarjetas>
+      <app-tarjetas [personaje]="personaje" [esHalloween]="esHalloween"></app-tarjetas>
     }
   </div>
 </div>

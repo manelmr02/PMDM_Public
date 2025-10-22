@@ -67,3 +67,17 @@
   display: flex;
   justify-content: center;
 }
+
+.halloweenCaja {
+  background-color: orange;
+  border-color: black;
+}
+.halloweenBotones .button {
+  background-color: black;
+  color: orange;
+  border: 2px solid orange;
+}
+.halloweenSemaforo .rectangulo {
+  background-color: black;
+  border-color: orange;
+}

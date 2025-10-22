@@ -21,4 +21,5 @@ export class Navbar {
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
+  
 }

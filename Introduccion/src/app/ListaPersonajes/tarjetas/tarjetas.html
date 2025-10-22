@@ -1,4 +1,4 @@
-<div class="tarjeta">
+<div class="tarjeta" [ngClass]="{'halloweenCard': esHalloween}">
     <div class="escudo">
         <img [src]="getEscudo(personaje.equipo)" [alt]="personaje.equipo">
     </div>
