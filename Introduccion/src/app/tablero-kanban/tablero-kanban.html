@@ -1,32 +1,168 @@
-<div class="example-container">
-  <h2>To do</h2>
+<div class="header">
+  <h1>Tablero Kanban</h1>
+  <button class="btn-add" (click)="toggleFormulario()">
+    {{ mostrarFormulario ? '✕ Cancelar' : '+ Nueva Tarea' }}
+  </button>
+</div>
 
-  <div
-    cdkDropList
-    #todoList="cdkDropList"
-    [cdkDropListData]="todo"
-    [cdkDropListConnectedTo]="[doneList]"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-    @for (item of todo; track item) {
-      <div class="example-box" cdkDrag>{{item}}</div>
-    }
+<!-- Formulario para agregar tareas -->
+<div class="formulario-container" *ngIf="mostrarFormulario">
+  <div class="formulario">
+    <h3>Nueva Tarea</h3>
+    <input 
+      type="text" 
+      [(ngModel)]="nuevaTarea.titulo" 
+      placeholder="Título de la tarea"
+      class="input-field"
+      (keyup.enter)="agregarTarea()"
+    />
+    <textarea 
+      [(ngModel)]="nuevaTarea.descripcion" 
+      placeholder="Descripción (opcional)"
+      class="textarea-field"
+      rows="3"
+    ></textarea>
+    <div class="form-actions">
+      <button class="btn-primary" (click)="agregarTarea()">Agregar</button>
+      <button class="btn-secondary" (click)="toggleFormulario()">Cancelar</button>
+    </div>
   </div>
 </div>
 
-<div class="example-container">
-  <h2>Done</h2>
+<!-- Tablero Kanban -->
+<div class="kanban-board">
+  <!-- Columna TO DO -->
+  <div class="column">
+    <div class="column-header todo-header">
+      <h2>📝 To Do</h2>
+      <span class="counter">{{ totalTodo }}</span>
+    </div>
+    <div
+      cdkDropList
+      id="todoList"
+      #todoList="cdkDropList"
+      [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="[doingList, doneList]"
+      class="task-list"
+      (cdkDropListDropped)="drop($event)">
+      @for (tarea of todo; track tarea.id) {
+        <div class="task-card" cdkDrag>
+          <div class="task-header">
+            <h3>{{ tarea.titulo }}</h3>
+            <button class="btn-delete" (click)="eliminarTarea(tarea.id, todo)">✕</button>
+          </div>
+          
+          @if (tarea.descripcion) {
+            <button 
+              class="btn-expand" 
+              (click)="toggleDescripcion(tarea.id)">
+              {{ isExpanded(tarea.id) ? '▼ Ocultar' : '▶ Ver descripción' }}
+            </button>
+            
+            @if (isExpanded(tarea.id)) {
+              <div class="task-description">
+                {{ tarea.descripcion }}
+              </div>
+            }
+          }
+          
+          <div class="drag-placeholder" *cdkDragPlaceholder></div>
+        </div>
+      }
+      
+      @if (todo.length === 0) {
+        <div class="empty-message">No hay tareas pendientes</div>
+      }
+    </div>
+  </div>
 
-  <div
-    cdkDropList
-    #doneList="cdkDropList"
-    [cdkDropListData]="done"
-    [cdkDropListConnectedTo]="[todoList]"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-    @for (item of done; track item) {
-      <div class="example-box" cdkDrag>{{item}}</div>
-    }
+  <!-- Columna DOING -->
+  <div class="column">
+    <div class="column-header doing-header">
+      <h2>⚡ Doing</h2>
+      <span class="counter">{{ totalDoing }}</span>
+    </div>
+    <div
+      cdkDropList
+      id="doingList"
+      #doingList="cdkDropList"
+      [cdkDropListData]="doing"
+      [cdkDropListConnectedTo]="[todoList, doneList]"
+      class="task-list"
+      (cdkDropListDropped)="drop($event)">
+      @for (tarea of doing; track tarea.id) {
+        <div class="task-card" cdkDrag>
+          <div class="task-header">
+            <h3>{{ tarea.titulo }}</h3>
+            <button class="btn-delete" (click)="eliminarTarea(tarea.id, doing)">✕</button>
+          </div>
+          
+          @if (tarea.descripcion) {
+            <button 
+              class="btn-expand" 
+              (click)="toggleDescripcion(tarea.id)">
+              {{ isExpanded(tarea.id) ? '▼ Ocultar' : '▶ Ver descripción' }}
+            </button>
+            
+            @if (isExpanded(tarea.id)) {
+              <div class="task-description">
+                {{ tarea.descripcion }}
+              </div>
+            }
+          }
+          
+          <div class="drag-placeholder" *cdkDragPlaceholder></div>
+        </div>
+      }
+      
+      @if (doing.length === 0) {
+        <div class="empty-message">No hay tareas en progreso</div>
+      }
+    </div>
+  </div>
+
+  <!-- Columna DONE -->
+  <div class="column">
+    <div class="column-header done-header">
+      <h2>✅ Done</h2>
+      <span class="counter">{{ totalDone }}</span>
+    </div>
+    <div
+      cdkDropList
+      id="doneList"
+      #doneList="cdkDropList"
+      [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="[todoList, doingList]"
+      class="task-list"
+      (cdkDropListDropped)="drop($event)">
+      @for (tarea of done; track tarea.id) {
+        <div class="task-card" cdkDrag>
+          <div class="task-header">
+            <h3>{{ tarea.titulo }}</h3>
+            <button class="btn-delete" (click)="eliminarTarea(tarea.id, done)">✕</button>
+          </div>
+          
+          @if (tarea.descripcion) {
+            <button 
+              class="btn-expand" 
+              (click)="toggleDescripcion(tarea.id)">
+              {{ isExpanded(tarea.id) ? '▼ Ocultar' : '▶ Ver descripción' }}
+            </button>
+            
+            @if (isExpanded(tarea.id)) {
+              <div class="task-description">
+                {{ tarea.descripcion }}
+              </div>
+            }
+          }
+          
+          <div class="drag-placeholder" *cdkDragPlaceholder></div>
+        </div>
+      }
+      
+      @if (done.length === 0) {
+        <div class="empty-message">No hay tareas completadas</div>
+      }
+    </div>
   </div>
 </div>
-
