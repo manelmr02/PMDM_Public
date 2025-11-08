@@ -11,3 +11,887 @@ html, body {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+body[data-theme='normal'] {
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-primary: #1976d2;
+  --color-secondary: #e0e0e0;
+
+  background-image: url('/fondo.jpg');
+  color: var(--color-text);
+}
+
+body[data-theme='halloween'] {
+  --color-bg: #1a0000;
+  --color-text: #ff9900;
+  --color-primary: #ff6600;
+  --color-secondary: #330000;
+
+  background-image: url('/images/halloweenBackground.jpg'); 
+  color: var(--color-text);
+}
+
+body[data-theme='navidad'] {
+  --color-bg: #004d25;
+  --color-text: #ffffff;
+  --color-primary: #ff0000;
+  --color-secondary: #007a33;
+
+  background-image: url('/images/navidadBackground.jpg'); 
+  color: var(--color-text);
+}
+
+/* 
+  ESTILOS DE TEMAS PARA NAVBAR
+*/
+
+/* Estilos de Halloween */
+body[data-theme='halloween'] .sidenav {
+  background: linear-gradient(180deg, #1a0a0f 0%, #0d0406 100%);
+  box-shadow: 0 0 40px rgba(255, 94, 0, 0.3);
+  border-right: 2px solid rgba(255, 94, 0, 0.2);
+}
+
+body[data-theme='halloween'] .sidenav::before {
+  content: url("/images/halloweenSidebar.jpg");
+  position: absolute;
+  font-size: 100px;
+  opacity: 0.10;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+body[data-theme='halloween'] .sidenav-header {
+  background: linear-gradient(135deg, rgba(255, 94, 0, 0.15) 0%, rgba(139, 0, 139, 0.15) 100%);
+  border-bottom: 1px solid rgba(255, 94, 0, 0.2);
+}
+
+body[data-theme='halloween'] .logo-container {
+  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
+  box-shadow: 0 0 20px rgba(255, 94, 0, 0.5);
+}
+
+body[data-theme='halloween'] .logo-icon {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+body[data-theme='halloween'] .sidenav-title {
+  color: #ff8c00;
+  text-shadow: 0 0 10px rgba(255, 94, 0, 0.7), 0 0 20px rgba(255, 94, 0, 0.4);
+}
+
+body[data-theme='halloween'] .opcion::before {
+  background: linear-gradient(90deg, rgba(255, 94, 0, 0.2) 0%, rgba(139, 0, 139, 0.2) 100%);
+}
+
+body[data-theme='halloween'] .opcion:hover {
+  background: rgba(255, 94, 0, 0.1);
+  box-shadow: 0 0 15px rgba(255, 94, 0, 0.2);
+}
+
+body[data-theme='halloween'] .opcion.active {
+  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
+  box-shadow: 0 4px 20px rgba(255, 94, 0, 0.6);
+  border: 1px solid rgba(255, 94, 0, 0.3);
+}
+
+body[data-theme='halloween'] .opcion:hover .opcion-icon {
+  filter: drop-shadow(0 0 6px rgba(255, 94, 0, 0.8));
+}
+
+body[data-theme='halloween'] .custom-menu-button {
+  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
+  box-shadow: 0 8px 24px rgba(255, 94, 0, 0.5);
+  border: 2px solid rgba(255, 94, 0, 0.3);
+}
+
+body[data-theme='halloween'] .custom-menu-button:hover {
+  box-shadow: 0 12px 40px rgba(255, 94, 0, 0.7);
+}
+
+body[data-theme='halloween'] .sidenav-footer {
+  border-top: 1px solid rgba(255, 94, 0, 0.2);
+  background: rgba(255, 94, 0, 0.05);
+}
+
+body[data-theme='halloween'] .sidenav-footer span {
+  color: rgba(255, 140, 0, 0.7);
+}
+
+body[data-theme='halloween'] .button-toggle.mat-button-toggle-checked {
+  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
+  box-shadow: 0 4px 12px rgba(255, 94, 0, 0.4);
+}
+
+/* Estilos de Navidad */
+body[data-theme='navidad'] .sidenav {
+  background: linear-gradient(180deg, #0a4d2e 0%, #004d25 100%);
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
+  border-right: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+body[data-theme='navidad'] .sidenav::before {
+  content: url("/images/navidadSidebar.jpg");
+  position: absolute;
+  font-size: 100px;
+  opacity: 0.10;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+body[data-theme='navidad'] .sidenav-header {
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.15) 0%, rgba(0, 122, 51, 0.15) 100%);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+body[data-theme='navidad'] .logo-container {
+  background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+body[data-theme='navidad'] .logo-icon {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+body[data-theme='navidad'] .sidenav-title {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+body[data-theme='navidad'] .opcion::before {
+  background: linear-gradient(90deg, rgba(255, 0, 0, 0.2) 0%, rgba(0, 122, 51, 0.2) 100%);
+}
+
+body[data-theme='navidad'] .opcion:hover {
+  background: rgba(255, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+body[data-theme='navidad'] .opcion.active {
+  background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.6);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+body[data-theme='navidad'] .opcion:hover .opcion-icon {
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
+}
+
+body[data-theme='navidad'] .custom-menu-button {
+  background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+  box-shadow: 0 8px 24px rgba(255, 0, 0, 0.5);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+body[data-theme='navidad'] .custom-menu-button:hover {
+  box-shadow: 0 12px 40px rgba(255, 0, 0, 0.7);
+}
+
+body[data-theme='navidad'] .sidenav-footer {
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
+  background: rgba(255, 0, 0, 0.05);
+}
+
+body[data-theme='navidad'] .sidenav-footer span {
+  color: rgba(255, 215, 0, 0.8);
+}
+
+body[data-theme='navidad'] .button-toggle.mat-button-toggle-checked {
+  background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+/*
+   ESTILOS DE CONTADOR
+*/
+
+/* Tema Halloween - Contador */
+body[data-theme='halloween'] .caja {
+    background-color: orange;
+    border-color: black;
+}
+
+body[data-theme='halloween'] .button {
+    background-color: black;
+    color: orange;
+    border: 2px solid orange;
+}
+
+body[data-theme='halloween'] .rectangulo {
+    background-color: black;
+    border-color: orange;
+}
+
+/* Tema Navidad - Contador */
+body[data-theme='navidad'] .caja {
+    background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+body[data-theme='navidad'] .button {
+    background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+    color: white;
+    border: 2px solid #ffd700;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+body[data-theme='navidad'] .button:hover {
+    box-shadow: 0 6px 16px rgba(255, 215, 0, 0.6);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+body[data-theme='navidad'] .rectangulo {
+    background: linear-gradient(180deg, #004d25 0%, #0a4d2e 100%);
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+body[data-theme='navidad'] .num {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/*
+   ESTILOS DE MATATOPOS
+*/
+
+/* Tema Halloween - Matatopos */
+body[data-theme='halloween'] .centrado {
+  background-size: cover;
+  background-position: center;
+}
+
+body[data-theme='halloween'] .contadorMarco {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-color: orange;
+  color: orange;
+  box-shadow: 0 0 10px orange;
+}
+
+body[data-theme='halloween'] .startButton {
+  background-color: orange;
+  color: black;
+  border: 2px solid black;
+}
+
+body[data-theme='halloween'] .startButton:hover {
+  background-color: black;
+  color: orange;
+}
+
+body[data-theme='halloween'] .startButton:active {
+  background-color: darkorange;
+  color: black;
+}
+
+body[data-theme='halloween'] .botonTopo {
+  border: 2px solid orange;
+}
+
+body[data-theme='halloween'] .botonTopo:active {
+  background-color: orange;
+  color: black;
+}
+
+body[data-theme='halloween'] .botonTopo:hover {
+  background-color: black;
+  color: orange;
+}
+
+body[data-theme='halloween'] .botonTopo img {
+  filter: drop-shadow(0 0 5px orange);
+}
+
+body[data-theme='halloween'] .centrado p {
+  color: orange;
+  text-shadow: 0 0 5px black;
+}
+
+body[data-theme='halloween'] .tablero {
+  border-color: orange;
+}
+
+/* Tema Navidad - Matatopos */
+body[data-theme='navidad'] .centrado {
+  background-size: cover;
+  background-position: center;
+}
+
+body[data-theme='navidad'] .contadorMarco {
+  background: linear-gradient(135deg, rgba(0, 77, 37, 0.9) 0%, rgba(255, 0, 0, 0.7) 100%);
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+body[data-theme='navidad'] .startButton {
+  background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+  color: white;
+  border: 2px solid #ffd700;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+body[data-theme='navidad'] .startButton:hover {
+  background: linear-gradient(135deg, #007a33 0%, #ff0000 100%);
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.6);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+body[data-theme='navidad'] .startButton:active {
+  background: #004d25;
+  color: #ffd700;
+  transform: translateY(0);
+}
+
+body[data-theme='navidad'] .botonTopo {
+  border: 2px solid #ffd700;
+  background-color: rgba(0, 77, 37, 0.3);
+}
+
+body[data-theme='navidad'] .botonTopo:active {
+  background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+  color: white;
+}
+
+body[data-theme='navidad'] .botonTopo:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+  border-color: #ff0000;
+}
+
+body[data-theme='navidad'] .botonTopo img {
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+}
+
+body[data-theme='navidad'] .centrado p {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(0, 122, 51, 0.5);
+}
+
+body[data-theme='navidad'] .tablero {
+  border: 3px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  background: rgba(0, 77, 37, 0.2);
+}
+
+/* 
+   ESTILOS DE LISTA DE PERSONAJES
+*/
+
+/* Tema Halloween - Lista de Personajes */
+body[data-theme='halloween'] .contenedor {
+  background: url("/images/halloweenBackground.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+body[data-theme='halloween'] .contenedor h1 {
+  color: orange;
+  text-shadow: 0 0 10px black, 0 0 20px orange;
+}
+
+/* Tema Navidad - Lista de Personajes */
+body[data-theme='navidad'] .contenedor {
+  background: url("/images/navidadBackground.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+body[data-theme='navidad'] .contenedor h1 {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(0, 122, 51, 0.5);
+}
+
+/*
+   ESTILOS DE TARJETAS
+*/
+
+/* Tema Halloween - Tarjetas */
+body[data-theme='halloween'] .tarjeta {
+    background: rgba(0, 0, 0, 0.8);
+    color: orange;
+    border-color: orange;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+}
+
+body[data-theme='halloween'] .tarjeta h3 {
+    color: orange;
+    text-shadow: 0 0 5px black;
+}
+
+body[data-theme='halloween'] .foto {
+    border-color: orange;
+}
+
+/* Tema Navidad - Tarjetas */
+body[data-theme='navidad'] .tarjeta {
+    background: linear-gradient(135deg, rgba(0, 77, 37, 0.9) 0%, rgba(255, 0, 0, 0.8) 100%);
+    color: white;
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+body[data-theme='navidad'] .tarjeta h3 {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+}
+
+body[data-theme='navidad'] .tarjeta p {
+    color: white;
+}
+
+body[data-theme='navidad'] .foto {
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+body[data-theme='navidad'] .escudo {
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.8));
+}
+
+body[data-theme='navidad'] .poder span {
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
+}
+
+/*
+   ESTILOS DE TABLERO KANBAN
+*/
+
+/*Tema Halloween KANBAN*/
+body[data-theme='halloween'] .header {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid orange;
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+}
+
+body[data-theme='halloween'] .header h1 {
+  color: orange;
+  text-shadow: 0 0 10px black;
+}
+
+body[data-theme='halloween'] .btn-add {
+  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
+  border: 2px solid orange;
+}
+
+body[data-theme='halloween'] .btn-add:hover {
+  background: linear-gradient(135deg, #8b008b 0%, #ff5e00 100%);
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8);
+}
+
+body[data-theme='halloween'] .formulario-container {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid orange;
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+}
+
+body[data-theme='halloween'] .formulario h3 {
+  color: orange;
+  text-shadow: 0 0 5px black;
+}
+
+body[data-theme='halloween'] .input-field,
+body[data-theme='halloween'] .textarea-field {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: orange;
+  color: orange;
+}
+
+body[data-theme='halloween'] .input-field::placeholder,
+body[data-theme='halloween'] .textarea-field::placeholder {
+  color: rgba(255, 140, 0, 0.6);
+}
+
+body[data-theme='halloween'] .input-field:focus,
+body[data-theme='halloween'] .textarea-field:focus {
+  border-color: #ff8c00;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+body[data-theme='halloween'] .btn-primary {
+  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
+  border: 2px solid orange;
+}
+
+body[data-theme='halloween'] .btn-primary:hover {
+  background: linear-gradient(135deg, #8b008b 0%, #ff5e00 100%);
+}
+
+body[data-theme='halloween'] .btn-secondary {
+  background: rgba(0, 0, 0, 0.6);
+  color: orange;
+  border: 2px solid orange;
+}
+
+body[data-theme='halloween'] .btn-secondary:hover {
+  background: rgba(255, 140, 0, 0.2);
+}
+
+body[data-theme='halloween'] .column {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid orange;
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+}
+
+body[data-theme='halloween'] .todo-header {
+  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
+  border: 1px solid orange;
+}
+
+body[data-theme='halloween'] .doing-header {
+  background: linear-gradient(135deg, #8b008b 0%, #ff5e00 100%);
+  border: 1px solid orange;
+}
+
+body[data-theme='halloween'] .done-header {
+  background: linear-gradient(135deg, #ff8c00 0%, #cc0000 100%);
+  border: 1px solid orange;
+}
+
+body[data-theme='halloween'] .task-list {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+body[data-theme='halloween'] .task-list.cdk-drop-list-dragging {
+  background: rgba(255, 140, 0, 0.2);
+}
+
+body[data-theme='halloween'] .task-card {
+  background: rgba(0, 0, 0, 0.8);
+  border-left: 4px solid orange;
+  border: 2px solid orange;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+}
+
+body[data-theme='halloween'] .task-card:hover {
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
+}
+
+body[data-theme='halloween'] .task-header h3 {
+  color: orange;
+}
+
+body[data-theme='halloween'] .btn-delete {
+  background: #cc0000;
+  border: 1px solid orange;
+}
+
+body[data-theme='halloween'] .btn-delete:hover {
+  background: #ff0000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+body[data-theme='halloween'] .btn-expand {
+  color: orange;
+}
+
+body[data-theme='halloween'] .btn-expand:hover {
+  color: #ff8c00;
+}
+
+body[data-theme='halloween'] .task-description {
+  background: rgba(0, 0, 0, 0.6);
+  color: orange;
+  border: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+body[data-theme='halloween'] .empty-message {
+  color: rgba(255, 140, 0, 0.6);
+}
+
+body[data-theme='halloween'] .drag-placeholder {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: orange;
+}
+
+/*Tema de Navidad KANBAN*/
+body[data-theme='navidad'] .header {
+  background: linear-gradient(135deg, rgba(0, 77, 37, 0.9) 0%, rgba(255, 0, 0, 0.8) 100%);
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+body[data-theme='navidad'] .header h1 {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+body[data-theme='navidad'] .btn-add {
+  background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+  border: 2px solid #ffd700;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+body[data-theme='navidad'] .btn-add:hover {
+  background: linear-gradient(135deg, #007a33 0%, #ff0000 100%);
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.6);
+}
+
+body[data-theme='navidad'] .formulario-container {
+  background: linear-gradient(135deg, rgba(0, 77, 37, 0.9) 0%, rgba(255, 0, 0, 0.8) 100%);
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+body[data-theme='navidad'] .formulario h3 {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+}
+
+body[data-theme='navidad'] .input-field,
+body[data-theme='navidad'] .textarea-field {
+  background: rgba(0, 77, 37, 0.5);
+  border: 2px solid #ffd700;
+  color: white;
+}
+
+body[data-theme='navidad'] .input-field::placeholder,
+body[data-theme='navidad'] .textarea-field::placeholder {
+  color: rgba(255, 215, 0, 0.6);
+}
+
+body[data-theme='navidad'] .input-field:focus,
+body[data-theme='navidad'] .textarea-field:focus {
+  border-color: #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+body[data-theme='navidad'] .btn-primary {
+  background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+  border: 2px solid #ffd700;
+}
+
+body[data-theme='navidad'] .btn-primary:hover {
+  background: linear-gradient(135deg, #007a33 0%, #ff0000 100%);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+body[data-theme='navidad'] .btn-secondary {
+  background: rgba(0, 77, 37, 0.6);
+  color: #ffd700;
+  border: 2px solid #ffd700;
+}
+
+body[data-theme='navidad'] .btn-secondary:hover {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+body[data-theme='navidad'] .column {
+  background: linear-gradient(135deg, rgba(0, 77, 37, 0.9) 0%, rgba(255, 0, 0, 0.7) 100%);
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+body[data-theme='navidad'] .todo-header {
+  background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+  border: 2px solid #ffd700;
+}
+
+body[data-theme='navidad'] .doing-header {
+  background: linear-gradient(135deg, #007a33 0%, #004d25 100%);
+  border: 2px solid #ffd700;
+}
+
+body[data-theme='navidad'] .done-header {
+  background: linear-gradient(135deg, #ffd700 0%, #ff0000 100%);
+  border: 2px solid white;
+}
+
+body[data-theme='navidad'] .task-list {
+  background: rgba(0, 77, 37, 0.3);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+body[data-theme='navidad'] .task-list.cdk-drop-list-dragging {
+  background: rgba(255, 0, 0, 0.2);
+}
+
+body[data-theme='navidad'] .task-card {
+  background: linear-gradient(135deg, rgba(0, 77, 37, 0.8) 0%, rgba(255, 0, 0, 0.6) 100%);
+  border-left: 4px solid #ffd700;
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+body[data-theme='navidad'] .task-card:hover {
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+body[data-theme='navidad'] .task-header h3 {
+  color: #ffd700;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
+}
+
+body[data-theme='navidad'] .btn-delete {
+  background: #cc0000;
+  border: 1px solid #ffd700;
+}
+
+body[data-theme='navidad'] .btn-delete:hover {
+  background: #ff0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+body[data-theme='navidad'] .btn-expand {
+  color: #ffd700;
+}
+
+body[data-theme='navidad'] .btn-expand:hover {
+  color: white;
+}
+
+body[data-theme='navidad'] .task-description {
+  background: rgba(0, 77, 37, 0.6);
+  color: white;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+body[data-theme='navidad'] .empty-message {
+  color: rgba(255, 215, 0, 0.6);
+}
+
+body[data-theme='navidad'] .drag-placeholder {
+  background: rgba(0, 77, 37, 0.5);
+  border: 2px dashed #ffd700;
+}
+
+body[data-theme='navidad'] .counter {
+  background: rgba(255, 215, 0, 0.3);
+  color: white;
+  border: 1px solid #ffd700;
+}
+
+/* 
+  ESTILOS DE EYECANDY
+*/
+
+/* Tema de Halloween para EYECANDY */
+
+body[data-theme='halloween'] .evolution-container {
+  background: radial-gradient(circle, #4b0082, #000000);
+  border: 3px solid orange;
+  box-shadow: 0 0 30px rgba(255, 140, 0, 0.6);
+}
+
+body[data-theme='halloween'] .glow {
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.9), transparent 70%);
+  animation: pulseHalloween 1.5s infinite;
+}
+
+@keyframes pulseHalloween {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+    box-shadow: 0 0 20px orange;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 40px orange;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+    box-shadow: 0 0 20px orange;
+  }
+}
+
+body[data-theme='halloween'] .reset-btn {
+  background-color: black;
+  color: orange;
+  border: 2px solid orange;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+body[data-theme='halloween'] .reset-btn:hover {
+  background-color: orange;
+  color: black;
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.8);
+}
+
+body[data-theme='halloween'] .evolving img {
+  filter: brightness(1.8) drop-shadow(0 0 15px orange);
+}
+
+body[data-theme='halloween'] .pokemon img {
+  filter: drop-shadow(0 0 10px rgba(255, 140, 0, 0.5));
+}
+
+/* Tema de Navidad para EYECANDY */
+
+body[data-theme='navidad'] .evolution-container {
+  background: radial-gradient(circle, #004d25, #ff0000, #007a33);
+  border: 3px solid #ffd700;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+body[data-theme='navidad'] .glow {
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.9) 0%,
+    rgba(255, 0, 0, 0.6) 40%,
+    transparent 70%
+  );
+  animation: pulseNavidad 1.5s infinite;
+}
+
+@keyframes pulseNavidad {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+    box-shadow: 0 0 20px #ffd700, 0 0 30px #ff0000;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 40px #ffd700, 0 0 50px #ff0000;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+    box-shadow: 0 0 20px #ffd700, 0 0 30px #ff0000;
+  }
+}
+
+body[data-theme='navidad'] .reset-btn {
+  background: linear-gradient(135deg, #ff0000 0%, #007a33 100%);
+  color: white;
+  border: 2px solid #ffd700;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+body[data-theme='navidad'] .reset-btn:hover {
+  background: linear-gradient(135deg, #007a33 0%, #ff0000 100%);
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+body[data-theme='navidad'] .evolving img {
+  filter: brightness(1.8) drop-shadow(0 0 15px #ffd700) drop-shadow(0 0 20px #ff0000);
+}
+
+@keyframes glowPulseNavidad {
+  from {
+    transform: scale(1);
+    filter: brightness(1.5) blur(1px) drop-shadow(0 0 10px #ffd700);
+  }
+  to {
+    transform: scale(1.1);
+    filter: brightness(2) blur(0px) drop-shadow(0 0 20px #ff0000);
+  }
+}
+
+body[data-theme='navidad'] .evolving img {
+  animation: glowPulseNavidad 0.8s infinite alternate;
+}
+
+body[data-theme='navidad'] .pokemon img {
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+}

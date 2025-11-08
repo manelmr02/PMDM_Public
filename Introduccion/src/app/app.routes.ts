@@ -11,12 +11,12 @@ import { TableroKanban } from './tablero-kanban/tablero-kanban';
 
 export const routes: Routes = [
     {path: '', component: Inicio},
-    {path: 'contador/:esHalloween', component: Contador},
-    {path: 'matatopos/:esHalloween', component: Matatopos},
+    {path: 'contador', component: Contador},
+    {path: 'matatopos', component: Matatopos},
     {path: 'carrera', component: Carrera},
     {path: 'paso-parametros/:num', component: PasoParametros},
-    {path:'eye-candy/:esHalloween',component:EyeCandy},
-    {path: 'lista-personajes/:esHalloween',component: ListaPersonajes},
+    {path:'eye-candy',component:EyeCandy},
+    {path: 'lista-personajes',component: ListaPersonajes},
     {path: 'formulario-registro',component: FormularioRegistro},
     {path: 'tablero-kanban',component: TableroKanban}
 ];

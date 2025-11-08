@@ -188,6 +188,22 @@
   background: transparent;
 }
 
+.toogle-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.button-toggle {
+  color: white;
+}
+
+.button-toggle.mat-button-toggle-checked {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  color:white !important;
+}
+
 /*Para que sea responsivo*/
 @media (max-width: 768px) {
   .sidenav {
@@ -200,79 +216,3 @@
   }
 }
 
-/*Estilos de Halloween*/
-.nav-halloween .sidenav {
-  background: linear-gradient(180deg, #1a0a0f 0%, #0d0406 100%);
-  box-shadow: 0 0 40px rgba(255, 94, 0, 0.3);
-  border-right: 2px solid rgba(255, 94, 0, 0.2);
-}
-
-.nav-halloween .sidenav::before {
-  content: url("/images/halloweenSidebar.jpg");
-  position: absolute;
-  font-size: 100px;
-  opacity: 0.10;
-  top: 50%;
-  left: 20%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-.nav-halloween .sidenav-header {
-  background: linear-gradient(135deg, rgba(255, 94, 0, 0.15) 0%, rgba(139, 0, 139, 0.15) 100%);
-  border-bottom: 1px solid rgba(255, 94, 0, 0.2);
-}
-
-.nav-halloween .logo-container {
-  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
-  box-shadow: 0 0 20px rgba(255, 94, 0, 0.5);
-}
-
-
-.nav-halloween .logo-icon {
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
-}
-
-.nav-halloween .sidenav-title {
-  color: #ff8c00;
-  text-shadow: 0 0 10px rgba(255, 94, 0, 0.7), 0 0 20px rgba(255, 94, 0, 0.4);
-}
-
-
-.nav-halloween .opcion::before {
-  background: linear-gradient(90deg, rgba(255, 94, 0, 0.2) 0%, rgba(139, 0, 139, 0.2) 100%);
-}
-
-.nav-halloween .opcion:hover {
-  background: rgba(255, 94, 0, 0.1);
-  box-shadow: 0 0 15px rgba(255, 94, 0, 0.2);
-}
-
-.nav-halloween .opcion.active {
-  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
-  box-shadow: 0 4px 20px rgba(255, 94, 0, 0.6);
-  border: 1px solid rgba(255, 94, 0, 0.3);
-}
-
-.nav-halloween .opcion:hover .opcion-icon {
-  filter: drop-shadow(0 0 6px rgba(255, 94, 0, 0.8));
-}
-
-.nav-halloween .custom-menu-button {
-  background: linear-gradient(135deg, #ff5e00 0%, #8b008b 100%);
-  box-shadow: 0 8px 24px rgba(255, 94, 0, 0.5);
-  border: 2px solid rgba(255, 94, 0, 0.3);
-}
-
-.nav-halloween .custom-menu-button:hover {
-  box-shadow: 0 12px 40px rgba(255, 94, 0, 0.7);
-}
-
-.nav-halloween .sidenav-footer {
-  border-top: 1px solid rgba(255, 94, 0, 0.2);
-  background: rgba(255, 94, 0, 0.05);
-}
-
-.nav-halloween .sidenav-footer span {
-  color: rgba(255, 140, 0, 0.7);
-}

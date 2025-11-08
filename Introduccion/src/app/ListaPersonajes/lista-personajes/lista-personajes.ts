@@ -44,18 +44,13 @@ export class ListaPersonajes {
     }
   ];
 
-  esHalloween: boolean = false;
 
   constructor(private ruta: ActivatedRoute) {
     const param = this.ruta.snapshot.paramMap.get('esHalloween');
-    this.esHalloween = param === 'true';  // Solo true si el string es 'true'
   }
 
 
   ngOnInit() {
-    this.ruta.paramMap.subscribe(params => {
-      const param = params.get('esHalloween');
-      this.esHalloween = param === 'true';
-    });
+
   }
 }

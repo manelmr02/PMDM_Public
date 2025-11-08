@@ -37,7 +37,7 @@
 
 @keyframes run{
     0%{background-position-x: 0px;}
-    100%{background-position-x:-1200px};
+    100%{background-position-x:-1200px;}
 } 
 
 @keyframes animation{

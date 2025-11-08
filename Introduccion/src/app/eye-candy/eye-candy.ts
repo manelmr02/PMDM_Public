@@ -30,20 +30,15 @@ export class EyeCandy {
   currentImage = '/images/Chimchar.webp';
   isEvolving = false;
 
-   esHalloween: boolean = false;
+
 
   constructor(private ruta: ActivatedRoute) {
-    const param = this.ruta.snapshot.paramMap.get('esHalloween');
-    this.esHalloween = param === 'true';  // Solo true si el string es 'true'
+
   }
 
 
   ngOnInit() {
     this.startEvolution();
-    this.ruta.paramMap.subscribe(params => {
-      const param = params.get('esHalloween');
-      this.esHalloween = param === 'true';
-    });
   }
 
   /*Funcion asincrona para iniciar la evolucion (esto lo hacemos cuando se carga la pagina)*/
