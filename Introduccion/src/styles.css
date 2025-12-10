@@ -471,7 +471,6 @@ body[data-theme='halloween'] .header {
 
 body[data-theme='halloween'] .header h1 {
   color: orange;
-  text-shadow: 0 0 10px black;
 }
 
 body[data-theme='halloween'] .btn-add {
@@ -492,7 +491,6 @@ body[data-theme='halloween'] .formulario-container {
 
 body[data-theme='halloween'] .formulario h3 {
   color: orange;
-  text-shadow: 0 0 5px black;
 }
 
 body[data-theme='halloween'] .input-field,
@@ -618,8 +616,7 @@ body[data-theme='navidad'] .header {
 }
 
 body[data-theme='navidad'] .header h1 {
-  color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+  color: white;
 }
 
 body[data-theme='navidad'] .btn-add {
@@ -640,8 +637,7 @@ body[data-theme='navidad'] .formulario-container {
 }
 
 body[data-theme='navidad'] .formulario h3 {
-  color: #ffd700;
-  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+  color: white;
 }
 
 body[data-theme='navidad'] .input-field,
@@ -699,8 +695,8 @@ body[data-theme='navidad'] .doing-header {
 }
 
 body[data-theme='navidad'] .done-header {
-  background: linear-gradient(135deg, #ffd700 0%, #ff0000 100%);
-  border: 2px solid white;
+  background: linear-gradient(135deg, #004d25 0%, #ff0000 100%);
+  border: 2px solid #ffd700;
 }
 
 body[data-theme='navidad'] .task-list {

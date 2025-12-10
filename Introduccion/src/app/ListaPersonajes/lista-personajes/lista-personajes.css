@@ -15,3 +15,45 @@ h1 {
   gap: 20px;
   margin-top: 20px;
 }
+
+/*Responsive*/
+
+/* Tablets — 2 columnas */
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Móviles — 1 columna */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .foto {
+    height: 200px;
+  }
+
+  .tarjeta h3 {
+    font-size: 18px;
+  }
+}
+
+/* Ajustes extra para móviles pequeños */
+@media (max-width: 400px) {
+  .tarjeta {
+    padding: 10px;
+  }
+  .foto {
+    height: 170px;
+  }
+  .escudo {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,5 +1,23 @@
-<div class="chibi" [ngStyle]="movChibi1"></div>
-<div class="chibi2"></div>
-<div class="chibi3"></div>
-<div class="chibi4"></div>
-<div class="chibi5"></div>
+<div class="contenedor">
+  <h1>Carrera de Chibis</h1>
+  
+  <button (click)="iniciarCarrera()">Iniciar Carrera</button>
+
+  <div class="ganador" *ngIf="ganador">
+    ¡{{ ganador }} ha ganado!
+  </div>
+
+  <div class="pista-container">
+    <div class="pista" *ngFor="let corredor of corredores">
+      <div class="carril">
+        <div 
+          class="corredor"
+          [class.corriendo]="corredor.animacionCorriendo"
+          [ngStyle]="getEstiloCorredor(corredor)">
+        </div>
+        <div class="meta">🏁</div>
+      </div>
+      <div class="nombre">{{ corredor.nombre }}</div>
+    </div>
+  </div>
+</div>

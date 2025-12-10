@@ -1,0 +1,132 @@
+<div class="clicker-container" [class.bonus-active]="tempBonusActive" [attr.data-multiplier]="tempMultiplier">
+  
+  <!-- Bonus temporales flotantes -->
+  <div 
+    *ngFor="let bonus of tempBonuses" 
+    class="temp-bonus"
+    [style.left.%]="bonus.x"
+    [style.top.%]="bonus.y"
+    (click)="collectTempBonus(bonus)">
+    {{ bonus.icon }}
+  </div>
+
+  <!-- Header con estadísticas -->
+  <header class="stats-header">
+    <div class="main-counter">
+      <span class="coin-icon">🪙</span>
+      <span class="coin-count">{{ formatNumber(coins) }}</span>
+    </div>
+    
+    <div class="secondary-stats">
+      <div class="stat">
+        <span class="label">Por segundo:</span>
+        <span class="value">{{ formatNumber(coinsPerSecond * tempMultiplier) }}/s</span>
+      </div>
+      <div class="stat">
+        <span class="label">Por click:</span>
+        <span class="value">{{ formatNumber(coinsPerClick * tempMultiplier) }}</span>
+      </div>
+      <div class="stat">
+        <span class="label">Total generado:</span>
+        <span class="value">{{ formatNumber(totalCoinsEarned) }}</span>
+      </div>
+    </div>
+
+    <!-- Indicador de bonus activo -->
+    <div *ngIf="tempBonusActive" class="bonus-indicator">
+      <span class="bonus-text">🔥 x{{ tempMultiplier }} BONUS ACTIVO 🔥</span>
+      <span class="bonus-timer">{{ tempBonusTimeLeft }}s</span>
+    </div>
+  </header>
+
+  <!-- Área principal del clicker -->
+  <main class="game-area">
+    <div class="clicker-section">
+      <div class="coin-wrapper" (click)="onCoinClick($event)">
+        <div class="main-coin">🪙</div>
+        
+        <!-- Animaciones de click -->
+        <div 
+          *ngFor="let anim of clickAnimations" 
+          class="click-animation"
+          [style.left.px]="anim.x"
+          [style.top.px]="anim.y">
+          +{{ formatNumber(anim.value) }}
+        </div>
+      </div>
+      
+      <p class="click-hint">¡Haz click en la moneda!</p>
+    </div>
+
+    <!-- Panel de mejoras -->
+    <div class="upgrades-panel">
+      <!-- Mejoras de producción -->
+      <section class="upgrade-section">
+        <h2>🏭 Mejoras de Producción</h2>
+        <div class="upgrades-list">
+          <div 
+            *ngFor="let upgrade of productionUpgrades"
+            class="upgrade-card"
+            [class.affordable]="canAfford(upgrade.currentCost)"
+            [class.owned]="upgrade.owned > 0"
+            (click)="buyProductionUpgrade(upgrade)">
+            
+            <div class="upgrade-icon">{{ upgrade.icon }}</div>
+            
+            <div class="upgrade-info">
+              <div class="upgrade-name">{{ upgrade.name }}</div>
+              <div class="upgrade-desc">{{ upgrade.description }}</div>
+              <div class="upgrade-stats">
+                <span class="production">+{{ upgrade.production }}/s c/u</span>
+              </div>
+            </div>
+            
+            <div class="upgrade-right">
+              <div class="upgrade-owned">x{{ upgrade.owned }}</div>
+              <div class="upgrade-cost" [class.cant-afford]="!canAfford(upgrade.currentCost)">
+                🪙 {{ formatNumber(upgrade.currentCost) }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mejoras de click -->
+      <section class="upgrade-section">
+        <h2>👆 Mejoras de Click</h2>
+        <div class="upgrades-list">
+          <div 
+            *ngFor="let upgrade of clickUpgrades"
+            class="upgrade-card"
+            [class.affordable]="canAfford(upgrade.currentCost)"
+            [class.owned]="upgrade.owned > 0"
+            (click)="buyClickUpgrade(upgrade)">
+            
+            <div class="upgrade-icon">{{ upgrade.icon }}</div>
+            
+            <div class="upgrade-info">
+              <div class="upgrade-name">{{ upgrade.name }}</div>
+              <div class="upgrade-desc">{{ upgrade.description }}</div>
+              <div class="upgrade-stats">
+                <span class="production">+{{ upgrade.clickBonus }}/click</span>
+              </div>
+            </div>
+            
+            <div class="upgrade-right">
+              <div class="upgrade-owned">x{{ upgrade.owned }}</div>
+              <div class="upgrade-cost" [class.cant-afford]="!canAfford(upgrade.currentCost)">
+                🪙 {{ formatNumber(upgrade.currentCost) }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer con acciones -->
+  <footer class="game-footer">
+    <button class="btn-save" (click)="saveGame()">💾 Guardar</button>
+    <button class="btn-reset" (click)="resetGame()">🔄 Reiniciar</button>
+  </footer>
+</div>

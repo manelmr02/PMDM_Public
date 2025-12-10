@@ -52,6 +52,10 @@
                 <mat-icon class="opcion-icon">backup_table</mat-icon>
                 <span>Tablero Kanban</span>
             </a>
+            <a class="opcion" routerLink="/clicker" routerLinkActive="active">
+                <mat-icon class="opcion-icon">touch_app</mat-icon>
+                <span>Clicker</span>
+            </a>
         </div>
         <div class="sidenav-footer">
             <mat-button-toggle-group class="patata toggle-group" name="mode" aria-label="mode" [value]="modoActual" (change)="cambiarModo($event.value)">

@@ -1,48 +1,217 @@
-.chibi{
-    width:100px;
-    height: 100px;
-    background-image: url('/images/anubis.png');
-    animation-delay: 1s;
-    animation:run 1s steps(12) infinite, animation 3s infinite;
+.contenedor {
+  padding: 20px;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.chibi2{
-    width:100px;
-    height: 100px;
-    background-image: url('/images/hell-knight.png');
-    animation:run 1s steps(12) infinite, animation 3s  infinite;
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.chibi3{
-    width:100px;
-    height: 100px;
-    background-image: url('/images/old-guy.png');
-    animation:run 1s steps(12) infinite, animation 3s  infinite;
+button {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-.chibi4{
-    width:100px;
-    height: 100px;
-    background-image: url('/images/pirate.png');
-    animation:run 1s steps(12) infinite, animation 3s  infinite;
+button:hover {
+  background-color: #45a049;
 }
 
-.chibi5{
-    width:100px;
-    height: 100px;
-    background-image: url('/images/succubus.png');
-    animation:run 1s steps(12) infinite, animation 3s  infinite;
+.ganador {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6b6b;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff3cd;
+  border-radius: 8px;
 }
 
+.pista-container {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
 
-@keyframes run{
-    0%{background-position-x: 0px;}
-    100%{background-position-x:-1200px;}
-} 
+.pista {
+  margin-bottom: 15px;
+}
 
-@keyframes animation{
-    0%{transform: translateX(0) scaleX(1);}
-    25%{transform: translateX(500px) scaleX(1);}
-    50%{transform: translateX(500px) scaleX(-1);}
-    100%{transform: translateX(0px) scaleX(-1);}
+.carril {
+  position: relative;
+  height: 100px;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.corredor {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 100px;
+  background-size: 1200px 100px;
+  background-repeat: no-repeat;
+  background-position-y: 0;
+  transition: left 0.05s linear;
+  image-rendering: pixelated;
+}
+
+.corredor.corriendo {
+  animation: run 1s steps(12) infinite;
+}
+
+@keyframes run {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: -1200px;
+  }
+}
+
+.meta {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+}
+
+.nombre {
+  font-weight: bold;
+  padding-left: 5px;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenedor {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  button {
+    padding: 8px 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .ganador {
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .pista-container {
+    padding: 15px;
+  }
+
+  .carril {
+    height: 70px;
+  }
+
+  .corredor {
+    width: 70px;
+    height: 70px;
+    background-size: 840px 70px;
+    background-position-y: 0;
+  }
+
+  @keyframes run {
+    0% {
+      background-position-x: 0px;
+    }
+    100% {
+      background-position-x: -840px;
+    }
+  }
+
+  .meta {
+    font-size: 1.5rem;
+    right: 10px;
+  }
+
+  .nombre {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor {
+    padding: 5px;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 8px 15px;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .ganador {
+    font-size: 16px;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  .pista-container {
+    padding: 10px;
+  }
+
+  .carril {
+    height: 60px;
+  }
+
+  .corredor {
+    width: 60px;
+    height: 60px;
+    background-size: 720px 60px;
+    background-position-y: 0;
+  }
+
+  @keyframes run {
+    0% {
+      background-position-x: 0px;
+    }
+    100% {
+      background-position-x: -720px;
+    }
+  }
+
+  .meta {
+    font-size: 1.2rem;
+  }
+
+  .nombre {
+    font-size: 12px;
+  }
 }

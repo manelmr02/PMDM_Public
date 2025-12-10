@@ -319,3 +319,9 @@
 .task-list.cdk-drop-list-receiving {
   background: #dee2e6;
 }
+
+/*Arreglo para el encapsulamiento de estilos, ya que no cambiaba el color e h1 y h3 cuando se cambiaban el modo con el servicio correspondiente*/
+:host ::ng-deep h1,
+:host ::ng-deep h3 {
+  color: var(--color-text) !important;
+}
